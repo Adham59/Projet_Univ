@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #071835; -fx-background-size: 1500;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChangePlan">
+   <children>
+      <HBox alignment="CENTER" prefHeight="110.0" prefWidth="762.0" style="-fx-background-color: #204382;">
+         <children>
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="217.0" text="Accueil" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="47.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -10;">
+                     <image>
+                        <Image url="@img/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefWidth="762.0" style="-fx-background-image: url;">
+         <VBox.margin>
+            <Insets top="100.0" />
+         </VBox.margin>
+         <children>
+            <VBox alignment="CENTER" prefHeight="428.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion des Pondérations :" wrappingWidth="489.4580078125">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="4.0" />
+                     </VBox.margin>
+                  </Text>
+                  <HBox prefHeight="83.0" prefWidth="490.0" style="-fx-background-color: #;">
+                     <children>
+                        <VBox prefHeight="88.0" prefWidth="245.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pondération préférence :">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="4.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <TextField fx:id="preferenceArea" onAction="#preferenceSelect" prefHeight="40.0" prefWidth="233.0" style="-fx-border-color: #ffffff; -fx-border-width: 1; -fx-background-color: #ffffff;">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="8.0" top="4.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" prefHeight="74.0" prefWidth="0.0" style="-fx-background-color: #ffffff;">
+                           <HBox.margin>
+                              <Insets left="4.0" right="4.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="-3.0" right="-3.0" />
+                           </padding>
+                        </Separator>
+                        <VBox prefHeight="111.0" prefWidth="240.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pondération  rédibitoire :">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="8.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <TextField fx:id="redibitoireArea" onAction="#redibitoireSelect" prefHeight="37.0" prefWidth="239.0" style="-fx-border-color: #ffffff; -fx-border-width: 1; -fx-background-color: #ffffff;">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <Separator prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <HBox prefHeight="63.0" prefWidth="490.0">
+                     <children>
+                        <VBox prefHeight="85.0" prefWidth="246.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pays Hôte :" wrappingWidth="205.13671875">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Text>
+                              <SplitMenuButton fx:id="hoteMenu" mnemonicParsing="false" onAction="#hoteSelect" prefHeight="27.0" prefWidth="250.0" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff; -fx-border-width: 1;" text="France">
+                                <items>
+                                    <MenuItem fx:id="menuItemFrance1" onAction="#hoteSelect" text="FRANCE" />
+                                    <MenuItem fx:id="menuItemGermany1" onAction="#hoteSelect" text="GERMANY" />
+                                    <MenuItem fx:id="menuItemSpain1" onAction="#hoteSelect" text="SPAIN" />
+                                    <MenuItem fx:id="menuItemItaly1" onAction="#hoteSelect" text="ITALY" />
+                                </items>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                              </SplitMenuButton>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="85.0" prefWidth="245.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pays Visiteur :">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <SplitMenuButton fx:id="visitorMenu" mnemonicParsing="false" onAction="#visitorSelect" prefHeight="27.0" prefWidth="250.0" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff; -fx-border-width: 1;" text="France">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                                 <items>
+                                    <MenuItem fx:id="menuItemFrance" onAction="#visitorSelect" text="FRANCE" />
+                                    <MenuItem fx:id="menuItemGermany" onAction="#visitorSelect" text="GERMANY" />
+                                    <MenuItem fx:id="menuItemSpain" onAction="#visitorSelect" text="SPAIN" />
+                                    <MenuItem fx:id="menuItemItaly" onAction="#visitorSelect" text="ITALY" />
+                                 </items>
+                              </SplitMenuButton>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                     <VBox.margin>
+                        <Insets bottom="8.0" left="4.0" right="4.0" top="8.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#SelectGestionEleve" prefHeight="64.0" prefWidth="480.0" style="-fx-background-image: url(./img/student.png); -fx-background-color: #071835; -fx-border-color: #204382; -fx-border-width: 3; -fx-font-family: ./font/cocogoose.ttf;" text="Gestion des élèves" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                           <image>
+                              <Image url="@img/student.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#SelectGestionAppariemment" prefHeight="64.0" prefWidth="480.0" style="-fx-background-color: #071835; -fx-border-color: #204382; -fx-border-width: 4;" text="Gestion des appariements" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="47.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/preferences.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#SelectHistory" prefHeight="32.0" prefWidth="480.0" style="-fx-border-color: #204382; -fx-border-width: 4; -fx-background-color: #204382;" text="Historique des modifications" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -20;">
+                           <image>
+                              <Image url="@img/history.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#SelectConnexion" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #071835; -fx-border-color: #ffffff; -fx-border-width: 2;" text="Déconnexion" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="cocogoose" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="4.0" left="306.0" right="4.0" top="4.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -2;">
+                           <image>
+                              <Image url="@img/logout.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <StackPane prefHeight="150.0" prefWidth="200.0" />
+   </children>
+</VBox>

@@ -1,0 +1,15 @@
+MOULINATOR rules
+
+The MOULINATOR puts two players against each other on a board made up of four concentric squares connected at the center of their four sides by perpendicular lines. 
+The game is played on the 24 points of the board (the intersections and vertices of the squares).
+Each player has 9 pieces.
+
+Flow of the game :
+Each player in turn can place a piece on one of the points on the board.
+If a player aligns 3 pieces along a line, he creates what's known as a mill, enabling him to remove an opponent's piece from the game that doesn't belong to a mill.
+Once the players have placed all their pieces, they move on to the movement phase.
+The movement phase consists of moving one of your pieces to one of it's adjacent points. 
+Similarly, if this move creates a mill, the player can remove an opponent's piece from the game that does not belong to a mill.
+
+Game goal:
+To remove the opponent's pieces until he has only two to win the game.

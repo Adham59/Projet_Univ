@@ -1,0 +1,11 @@
+FORENAME;NAME;COUNTRY;BIRTH_DATE;HOBBIES;GUEST_ANIMAL_ALLERGY;HOST_HAS_ANIMAL;GUEST_FOOD;HOST_FOOD;GENDER;PAIR_GENDER;HISTORY
+Alix;A;FRANCE;2009-06-22;;no;no;vegetarian;vegetarian,nonuts;female;female;same
+Bellatrix;B;FRANCE;2006-03-17;;no;no;;vegetarian;male;;
+Charlie;C;FRANCE;2008-01-25;reading,science,culture;no;yes;;nonuts,vegetarian;female;;other
+Delta;D;FRANCE;2009-12-23;science,culture,reading,sports;no;yes;;vegetarian,nonuts;male;;
+Estelle;E;FRANCE;2007-06-17;sports,culture;no;no;;nonuts,vegetarian;female;male;
+Valentin;V;ITALY;2008-09-09;sports,reading;no;yes;;nonuts,vegetarian;female;female;
+Waloo;W;ITALY;2008-09-13;science;no;no;;nonuts,vegetarian;female;male;
+Yan;Y;ITALY;2006-10-23;;no;yes;;nonuts,vegetarian;male;male;same
+Xavier;X;ITALY;2007-09-09;sports;no;no;;nonuts,vegetarian;male;male;same
+Zoe;Z;ITALY;2008-08-19;culture;no;no;nonuts;nonuts,vegetarian;male;;same

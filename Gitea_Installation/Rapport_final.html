@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Adham Berrakane, Nathan Dorny, Shega Berisa" />
+  <title>Rapport de SAE réseaux</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="css/index.css" />
+  <header>    
+      <img src="./logo/logo.png" alt="logo" /> 
+  </header>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Rapport de SAE réseaux</h1>
+<p class="author">Adham Berrakane, Nathan Dorny, Shega Berisa</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#rapport-sae-dinstallation-de-services-réseaux."><span class="toc-section-number">1</span> Rapport Sae d’installation de services réseaux.</a>
+<ul>
+<li><a href="#prépartion-dun-machine-virtuelle-debian"><span class="toc-section-number">1.1</span> Prépartion d’un machine virtuelle Debian</a>
+<ul>
+<li><a href="#questions-de-vocabulaire-et-de-culture-informatique"><span class="toc-section-number">1.1.1</span> Questions de vocabulaire et de culture informatique</a></li>
+<li><a href="#rapport-sur-linstallation-dune-machine-virtuelle-debian"><span class="toc-section-number">1.1.2</span> Rapport sur l’installation d’une machine virtuelle <span>Debian</span></a></li>
+<li><a href="#préparation-du-système"><span class="toc-section-number">1.1.3</span> Préparation du système</a></li>
+</ul></li>
+<li><a href="#installation-debian-automatisé-par-préconfiguration."><span class="toc-section-number">1.2</span> Installation Debian automatisé par préconfiguration.</a>
+<ul>
+<li><a href="#question-et-reponses-sur-la-distribution-debian."><span class="toc-section-number">1.2.1</span> Question et reponses sur la distribution Debian.</a></li>
+</ul></li>
+<li><a href="#rapport-dinstallation-automatique-dune-machine-virtuelle-debian."><span class="toc-section-number">1.3</span> Rapport d’installation automatique d’une machine virtuelle Debian.</a>
+<ul>
+<li><a href="#recuperation-et-preparation-des-fichier-necessaire"><span class="toc-section-number">1.3.1</span> Recuperation et preparation des fichier necessaire:</a></li>
+<li><a href="#modification-de-la-configuration-de-la-vm."><span class="toc-section-number">1.3.2</span> Modification de la configuration de la vm.</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#gitea"><span class="toc-section-number">2</span> Gitea</a>
+<ul>
+<li><a href="#configuration-globale-de-git"><span class="toc-section-number">2.1</span> Configuration globale de git:</a></li>
+<li><a href="#git-guigitk"><span class="toc-section-number">2.2</span> Git-gui/Gitk</a></li>
+<li><a href="#accéder-au-port-3000"><span class="toc-section-number">2.3</span> Accéder au port 3000</a></li>
+<li><a href="#installation-et-lancement-de-gitea"><span class="toc-section-number">2.4</span> Installation et lancement de Gitea</a></li>
+<li><a href="#parametrage-de-gitea"><span class="toc-section-number">2.5</span> Parametrage de Gitea</a></li>
+<li><a href="#utilisation-basique"><span class="toc-section-number">2.6</span> Utilisation basique</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="rapport-sae-dinstallation-de-services-réseaux."><span class="header-section-number">1</span> Rapport Sae d’installation de services réseaux.</h1>
+<h2 data-number="1.1" id="prépartion-dun-machine-virtuelle-debian"><span class="header-section-number">1.1</span> Prépartion d’un machine virtuelle Debian</h2>
+<h3 data-number="1.1.1" id="questions-de-vocabulaire-et-de-culture-informatique"><span class="header-section-number">1.1.1</span> Questions de vocabulaire et de culture informatique</h3>
+<p><strong>Que signifie “64-bit” dans “Debian 64-bit ?</strong></p>
+<p>Nous avons opté pour l’installation de la version Debian 64-bit car l’architecture de la machine virtuelle est en 64 bits.</p>
+<p>En raison de la nature du processeur 64 bits de notre ordinateur virtuel, il est important de sélectionner la version appropriée de Debian. La notation 64-bit fait référence à la quantité d’informations que le processeur peut traiter simultanément. (<a href="https://fr.wikipedia.org/wiki/Processeur_64_bits">source</a>)</p>
+<p><strong>Quelle est la configuration réseau utilisée par défaut ?</strong></p>
+<p>La configuration réseau par défaut est celle de l’IUT.</p>
+<p><strong>Quel est le nom du fichier XML contenant la configuration de votre machine ?</strong></p>
+<p>Le fichier XML se trouve dans le fichier vbox sous le nom de sae203.vbox (dans notre situation) (<a href="https://forums.virtualbox.org/viewtopic.php?f=6&amp;t=90311">source</a>)</p>
+<p><strong>Sauriez-vous le modifier directement ce fichier pour mettre 2 processeurs à votre machine ?</strong></p>
+<p>Il suffit de remplacer le chiffre entre gillemet par “2” pour mettre 2 CPU = 2 processeurs.</p>
+<p><strong>Qu’est-ce qu’un fichier iso bootable ?</strong></p>
+<p>Un fichier ISO bootable est un fichier image d’un disque optique qui contient l’ensemble des données nécessairespour démarrer un ordinateur à partir d’un périphérique de stockage, tel qu’un CD, un DVD ou une clé USB.(<a href="https://www.malekal.com/les-fichiers-iso/">source</a>)</p>
+<p><strong>Qu’est-ce que MATE ? GNOME ?</strong></p>
+<p>MATE et GNOME sont deux environnements de bureau pour les systèmes d’exploitation basés sur Linux et Unix.(<a href="https://mate-desktop.org/fr/#:~:text=MATE%20est%20un%20fork%20de,d&#39;exploitation%20similaires%20%C3%A0%20Unix.">source</a>)</p>
+<p><strong>Qu’est-ce qu’un serveur web ?</strong></p>
+<p>Un serveur web est un logiciel qui permet de gérer et de diffuser des pages web à travers Internet ou un réseau local. Il est généralement installé sur un ordinateur spécialement dédié à cet usage, appelé serveur web, qui est connecté à Internet en permanence.(<a href="https://developer.mozilla.org/fr/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server">source</a>)</p>
+<p><strong>Qu’est-ce qu’un serveur ssh ?</strong></p>
+<p>Un serveur SSH est un programme qui permet à un utilisateur distant de se connecter de manière sécurisée à un serveur ou à un ordinateur, en utilisant le protocole de communication Secure Shell (SSH).(<a href="https://www.it-connect.fr/chapitres/quest-ce-que-ssh/">source</a>)</p>
+<p><strong>Qu’est-ce qu’un serveur mandataire ?</strong></p>
+<p>Un serveur mandataire (ou “proxy server” en anglais) est un serveur intermédiaire situé entre un utilisateur et Internet.Lorsqu’un utilisateur demande une ressource sur Internet (par exemple, une page web), cette requête est d’abord envoyée au serveur mandataire, qui se charge de la transmettre à Internet.(<a href="https://www.techno-science.net/definition/3812.html">source</a>)</p>
+<p><strong>Qu’est-ce qu’un fichier iso bootable ?</strong></p>
+<p>Sur un système d’exploitation basé sur Unix ou Linux, il est possible de savoir à quels groupes appartient un utilisateur en utilisant la commande “groups”. Cette commande affiche la liste des groupes auxquels appartient un utilisateur spécifique.(<a href="https://www.ionos.fr/digitalguide/serveur/know-how/quest-ce-quun-fichier-iso/">source</a>)</p>
+<p><strong>Comment peux-ton savoir à quels groupes appartient l’utilisateur user ?</strong></p>
+<p>Sur un système d’exploitation basé sur Unix ou Linux, il est possible de savoir à quels groupes appartient un utilisateur en utilisant la commande “groups”. Cette commande affiche la liste des groupes auxquels appartient un utilisateur spécifique.(<a href="http://manpagesfr.free.fr/man/man1/groups.1.html">source</a>)</p>
+<p><strong>Quel est la version du noyau Linux utilisé par votre VM ?</strong></p>
+<p>La version utiliser par notre vm est 5.10.0-21-amd64.</p>
+<p><strong>À quoi servent les suppléments invités ? Donner 2 principales raisons de les installer.</strong></p>
+<p>Les suppléments invités (ou “Guest Additions” en anglais) sont un ensemble de logiciels et de pilotes qui peuvent être installés dans une machine virtuelle pour améliorer ses performances et ses fonctionnalités. (<a href="https://lecrabeinfo.net/virtualbox-installer-les-additions-invite-guest-additions.html#:~:text=Les%20additions%20invit%C3%A9%20(guest%20additions,h%C3%B4te%20et%20la%20machine%20invit%C3%A9.)">source</a>)</p>
+<p><strong>Voici deux raisons principales pour lesquelles il est recommandé d’installer les suppléments invités dans une machine virtuelle :</strong></p>
+<ul>
+<li><p>Meilleure intégration de la machine virtuelle avec l’hôte : L’installation des suppléments invités permet de faciliter l’intégration de la machine virtuelle avec l’hôte.</p></li>
+<li><p>Meilleures performances : Les suppléments invités comprennent également des pilotes optimisés pour les composants virtuels de la machine, ce qui peut améliorer les performances globales de la machine virtuelle.</p></li>
+</ul>
+<h3 data-number="1.1.2" id="rapport-sur-linstallation-dune-machine-virtuelle-debian"><span class="header-section-number">1.1.2</span> Rapport sur l’installation d’une machine virtuelle <a href="https://www.debian.org/index.fr.html">Debian</a></h3>
+<p><strong>Installation de l’OS:</strong></p>
+<p><em>L’installation de la machine virutelle se fera sur <a href="https://www.virtualbox.org/">Oracle VM VirtualBox</a></em></p>
+<p><strong>L’installation de l’iso bootable se fera sur le site <a href="https://www.debian.org/index.fr.html">Debian</a></strong></p>
+<blockquote>
+<p><img src="./images/1.png" /></p>
+</blockquote>
+<p><strong>Caractéristiques à respecter :</strong> Il faut nommée correctement la machine, choisir le bon systeme d’exploitation et aussi son emplacement.</p>
+<blockquote>
+<p><img src="./images/2.png" /></p>
+</blockquote>
+<p>Mémoire vive (RAM) : 2048 Mo pour être à l’aise à l’usage.</p>
+<blockquote>
+<p><img src="./images/3.png" /></p>
+</blockquote>
+<p>Disque dur : 20 Go entier (une seule partition), laisser le reste par défaut.</p>
+<blockquote>
+<p><img src="./images/4.png" /></p>
+</blockquote>
+<p><strong>Une fois la configuration de la machine terminée vous pouvez la lancer.</strong></p>
+<p>Vous tomberai normalement sur cette interface:</p>
+<blockquote>
+<p><img src="./images/5.png" /></p>
+</blockquote>
+<p>De notre coter l’installation se fera sans interface graphique<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Des le debut le nom de la machine nous a été demandé et on a dut la nommée sae203.</p>
+<blockquote>
+<p><img src="./images/6.png" /></p>
+</blockquote>
+<p><strong>Juste apres il nous ai demander de choisir un miroir :</strong></p>
+<p>On choisira entrée le miroir<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> de polyctech:</p>
+<blockquote>
+<p><img src="./images/7.png" /></p>
+</blockquote>
+<p><strong>Le proxy nous a été demandée.</strong></p>
+<p>On a donc mis celui de l’université comme demandée: <code>http://cache.univ-lille.fr:3128</code></p>
+<blockquote>
+<p><img src="./images/8.png" /></p>
+</blockquote>
+<p><strong>Nom d’utilisateur:</strong></p>
+<p>Ici celui-ci sera <code>User</code></p>
+<blockquote>
+<p><img src="./images/9.png" /></p>
+</blockquote>
+<p><strong>Identifiant du compte:</strong></p>
+<p>Ici celui-ci sera <code>user</code></p>
+<blockquote>
+<p><img src="./images/10.png" /></p>
+</blockquote>
+<p>A noter<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p><strong>Le mot de passe:</strong></p>
+<p>Ici celui-ci sera <code>user</code></p>
+<p><strong>Le mot de passe de root:</strong> * Comme toute bonne machine virtuelle on nous propose de donner un mot de passe au super utilisateur <code>root</code>.</p>
+<blockquote>
+<p><img src="./images/11.png" /></p>
+</blockquote>
+<p>Ici le mot de passe sera bien evidemment <em>root</em></p>
+<p><strong>Arrive le moment du partitionnage du disque.</strong></p>
+<p>Dans le tp il nous ai demander de choisir une seul partition pour l’ensemble du disque.</p>
+<blockquote>
+<p><img src="./images/12.png" /></p>
+</blockquote>
+<p><strong>Dernières ajustement:</strong></p>
+<ul>
+<li>Sélection des logiciels de démarrage
+<ul>
+<li>environnement de bureau Debian</li>
+<li>MATE (penser à décocher Gnome)</li>
+<li>Serveur web</li>
+<li>Serveur ssh</li>
+<li>utilitaire usuels du système</li>
+</ul></li>
+</ul>
+<blockquote>
+<p><img src="./images/13.png" /></p>
+</blockquote>
+<p><em>Maintenant que l’installation de l’os est terminée nous allons procéder a une preparation du systeme.</em></p>
+<h3 data-number="1.1.3" id="préparation-du-système"><span class="header-section-number">1.1.3</span> Préparation du système</h3>
+<p>Nous nous sommes connecter en tant qu’utlisateur root et ajouter le groupe sudo à notre compte principal grace a la commande: <code>sudo usermod -aG sudo user</code> Cette commande permet d’ajouter l’utilisateur <code>user</code> au groupe <code>sudo</code></p>
+<blockquote>
+<p><img src="./images/14.png" /></p>
+</blockquote>
+<p><strong>Installation des suppléments invités</strong></p>
+<p>Vien maintenant l’installation des supplément invités:</p>
+<p>Pour debuter nous avons insérer le cd des suppléments:</p>
+<blockquote>
+<p><img src="./images/15.png" /></p>
+</blockquote>
+<p><strong>1. Nous allons monter le cd en tapant cette commande dans le terminale :</strong> <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a><code>sudo mount /dev/cdrom /mnt</code></p>
+<blockquote>
+<p><img src="./images/16.png" /></p>
+</blockquote>
+<p><strong>2. Nous allons monter installer les suplléments grace a la commande :</strong> <code>sudo /mnt/VBoxLinuxAdditions.run</code></p>
+<blockquote>
+<p><img src="./images/17.png" /></p>
+</blockquote>
+<p><strong>Précision sur le Proxy</strong></p>
+<p>Pour se qui est du proxy on a le choix entre les entrées a la main a chaque connexion comme ici:</p>
+<blockquote>
+<p><img src="./images/18.png" /></p>
+</blockquote>
+<p>Ou de les insérer dans le bashrc pour qu’il y reste indefiniment: Pour cela on va taper la commande <code>nano .bashrc</code></p>
+<blockquote>
+<p><img src="./images/19.png" /></p>
+</blockquote>
+<p>Apres avoir rentrée les 2 commande dans la bashrc ne pas oublié le <code>Ctrl</code> + <code>S</code> pour sauvegarder.</p>
+<h2 data-number="1.2" id="installation-debian-automatisé-par-préconfiguration."><span class="header-section-number">1.2</span> Installation Debian automatisé par préconfiguration.</h2>
+<h3 data-number="1.2.1" id="question-et-reponses-sur-la-distribution-debian."><span class="header-section-number">1.2.1</span> Question et reponses sur la distribution Debian.</h3>
+<p><strong>Origine de Debian:</strong></p>
+<p><strong>Combien de version au minimum sont activement maintenues par Debian ? Donnez leur nom générique (= les types de distribution).</strong></p>
+<ul>
+<li><p>Le projet <code>Debian</code> est un projet communautaire de développement de logiciels open source qui vise a créer un systeme d’exploitation GNU/Linux entièrement libre.</p></li>
+<li><p>Le nom <code>Debian</code> provient du nom des ces fondateur Ian Murdock et Debra Lynn qui on combiné leur 2 nom pour créer le mot Debian.(<a href="https://www.debian.org/doc/manuals/project-history/intro.fr.html">source</a>)</p></li>
+</ul>
+<p><strong>Il existe 3 durées de prise en charge (support) de ces versions : la durée minimale, la durée en support long terme (LTS) et la durée en support long terme étendue (ELTS). Quelle sont les durées de ces prises en charge ?</strong>(<a href="https://wiki.debian.org/fr/LTS">source</a>)</p>
+<ul>
+<li>Pour la prise en charge a long terme etendue (ELTS) : En generale 10 ans.</li>
+<li>Pour la prise en charge long terme : En generale environ 5 ans.</li>
+<li>Pour la pris en chargge minimale : En genrale environ 2 ans .</li>
+</ul>
+<p><strong>Pendant combien de temps les mises à jour de sécurité seront-elles fournies ?</strong></p>
+<p>Environ une année aprèes que la version stable suivante a été publiée, sauf loqu’une autre distribution stable et publiée la meme année.(<a href="https://forums.virtualbox.org/viewtopic.php?f=6&amp;t=90311">source</a>)</p>
+<p><strong>Combien de version au minimum sont activement maintenues par Debian ? Donnez leur nom générique (= les types de distribution).</strong>(<a href="https://www.debian.org/doc/manuals/debian-faq/getting-debian.fr.html#version">source</a>)</p>
+<ul>
+<li><p>Debian maintient activemment 3 version qui sont :</p></li>
+<li><p>Stable: C’est la version principale de Debian et est destinée au utilisateur qui on besoin d’un systeme stable et avec des mise a jour reguliere.</p></li>
+<li><p>Testing: C’est une version qui permet au utilisateur de pouvoir utliser les dernieres fonctinnalitée et mise a jour avant leur sortit officiel et tout sa sur un systeme stable .</p></li>
+<li><p>Unstable: C’est C’est une version qui permet au utilisateur de pouvoir utliser les dernieres fonctinnalitée et mise a jour avant leur sortit officiel mais au contraire du Testing cette version contient peut contenir de nombreux bug et est donc generalement instable.</p></li>
+</ul>
+<p><strong>Chaque distribution majeur possède un nom de code différent. Par exemple, la version majeur actuelle (Debian 11) se nomme Bullseye. D’où viennent les noms de code données aux distributions ?</strong></p>
+<p>Les nom des distribution que propose Debian viennent en generale de la licence toy story en effet on peut retrouver nom de personnage de toy story comme (<a href="https://www.debian.org/doc/manuals/debian-faq/ftparchives.fr.html#codenames">source</a>) :</p>
+<pre><code>- Buzz
+- Hamm
+- Woody
+- Bullseye</code></pre>
+<p><strong>L’un des atouts de Debian fut le nombre d’architecture (≈ processeurs) officiellement prises en charge. Combien et lesquelles sont prises en charge par la version Bullseye ?</strong>(<a href="https://www.debian.org/doc/manuals/debian-faq/compatibility.fr.html#arches">source</a>)</p>
+<p><strong>La version de Bulleye prend a charges pas moins de 11 architectures :</strong></p>
+<pre><code>- 32 bits PC (i386)
+- 64 bits PC (amd64)
+- 64 bits ARM (arm64)
+- ARM EABI (arm64)
+- ARMv7 (EABI hard-float ABI )
+- MIPS (mips (big-endian) et mipsel (little-endian))
+- MIPS 64 bits (mips64el)
+- IBM System z (s390x)
+- PowerPC (powerpc)
+- IBM POWER(ppc64el)
+- RISC-V (riscv64)</code></pre>
+<p><strong>Première version avec un nom de code (<a href="https://wiki.debian.org/fr/DebianBuzz">source</a>):</strong></p>
+<p><strong>Quelle a était le premier nom de code utilisé ?</strong></p>
+<p>Le premier nom de code utlisé a été Buzz.</p>
+<p><strong>Quand a-t-il été annoncé ?</strong></p>
+<p>Il a été publier en juin 1996.</p>
+<p><strong>Quelle était le numéro de version de cette distribution ?</strong></p>
+<p>Le numero de la version de cette distribution est la 1.1.</p>
+<p><strong>Dernière nom de code attribué(<a href="https://www.debian.org/releases/bookworm/">source</a>):</strong></p>
+<p><strong>Quel est le dernier nom de code annoncée à ce jour ?</strong></p>
+<p>A ce jour le dernier nom de code annoncée à ce jour est <code>Bookworm</code>.</p>
+<p><strong>Quand a-t-il été annoncé ?</strong></p>
+<p>Celui ci a étéé annoncé le 15 aout 2021.</p>
+<p><strong>Quelle est la version de cette distribution ?</strong></p>
+<p>Celui-ci sera donc la 12 version de Debian.</p>
+<h2 data-number="1.3" id="rapport-dinstallation-automatique-dune-machine-virtuelle-debian."><span class="header-section-number">1.3</span> Rapport d’installation automatique d’une machine virtuelle Debian.</h2>
+<h3 data-number="1.3.1" id="recuperation-et-preparation-des-fichier-necessaire"><span class="header-section-number">1.3.1</span> Recuperation et preparation des fichier necessaire:</h3>
+<p><strong>Il nous ai mis a disposition un paketage a extraire dans le fichier de la machine virtuelle</strong></p>
+<p>Ici le chemin de la machine est <em>usr/local/virtual_machine/infoetu/saeb/adham.berrakane.etu</em></p>
+<blockquote>
+<p><img src="./images/20.png" /></p>
+</blockquote>
+<p><strong>Il nous ai ensuite demander de remplacer la chaîne @<span class="citation" data-cites="UUID">@UUID</span>@@ par un identifiant unique universel.</strong></p>
+<p>Nous allons nous rendre dans le dossier de la machine virtuelle ou se trouve normalement notre fichier extrait plutot : <code>S203-Debian11.viso</code>.</p>
+<p>Et maintenant taper cette commande dans le terminale.</p>
+<p><code>sed -i -E "s/(--iprt-iso-maker-file-marker-bourne-sh).*$/\1=$(cat /proc/sys/kernel/random/uuid)/" S203-Debian11.viso</code></p>
+<p><strong>Voila l’iso d’instalation automatique est pret il suffie de l’inserer dans la vm.</strong></p>
+<blockquote>
+<p><img src="./images/21.png" /></p>
+</blockquote>
+<p><strong>Une fois l’installation terminé on arrive sur la machine celle ci ne dispose d’aune interface graphique.Quand on test les utilisateur on voit que le user et root sont accessible a la connexion.</strong></p>
+<blockquote>
+<p><img src="./images/22.png" /></p>
+</blockquote>
+<p>On pourrait executer la commande <code>tasksel</code> en sudo pour remedier au manque de l’interface graphique mais ici l’installation complete nous ai demander sans aucune intervention.</p>
+<h3 data-number="1.3.2" id="modification-de-la-configuration-de-la-vm."><span class="header-section-number">1.3.2</span> Modification de la configuration de la vm.</h3>
+<p><strong>C’est maintenant que vien le moment de donner une interface graphique a notre vm mais aussi l’ajout de paquets qui nous serons utile pour la suite des sceances</strong></p>
+<p>Pour cela nous allons nous penchez sur le fichier qui s’occupe de tout les installation sur la vm , le fichier : <code>preseed-fr.cfg</code></p>
+<p>Grace a se fichier nous allons pouvoir ajouter les droit <code>sudo</code></p>
+<blockquote>
+<p><img src="./images/23.png" /></p>
+</blockquote>
+<p>Ajouter l’interface <code>Mate</code>:</p>
+<blockquote>
+<p><img src="./images/24.png" /></p>
+</blockquote>
+<p>Et les paketages necessaire a la prochaine partie : <code>git</code>,<code>sqlite3</code>,<code>curl</code> <code>bash-completion</code> et <code>neofetch</code>.</p>
+<blockquote>
+<p><img src="./images/25.png" /></p>
+</blockquote>
+<h1 data-number="2" id="gitea"><span class="header-section-number">2</span> Gitea</h1>
+<h2 data-number="2.1" id="configuration-globale-de-git"><span class="header-section-number">2.1</span> Configuration globale de git:</h2>
+<p>Tout d’abord nous avons ouvert un terminale et ecrit ces lignes de commande:</p>
+<blockquote>
+<p><img src="./images/26.png" /></p>
+</blockquote>
+<p>Bien sur il faut changer les information demander par les nôtres.</p>
+<p><em>A noté :</em></p>
+<blockquote>
+<p><code>Cette initialisation permet d’éviter le warning concernant la création d'une branche par défaut.</code></p>
+</blockquote>
+<h2 data-number="2.2" id="git-guigitk"><span class="header-section-number">2.2</span> Git-gui/Gitk</h2>
+<p>Vien maintenant l’installation de git-gui et pour cela rein de plus simple il nous a suffie de taper sur le terminale <code>sudo apt-get install git-gui</code>.</p>
+<p><strong>Mais qu’est-ce que le logiciel git-gui ?</strong></p>
+<p>Git GUI est un logiciel open-source qui fournit une interface graphique pour Git, un système de contrôle de version de code source. Il permet aux utilisateurs de visualiser et de gérer les modifications apportées aux fichiers, de créer et de fusionner des branches de code, de gérer les conflits et de collaborer avec d’autres développeurs.(<a href="http://codeur-pro.fr/git-gui-guide-complet/.">source</a>)</p>
+<p>Pour le lancer rien de plus simple il suffit de taper la commande git gui.</p>
+<p><strong>Qu’est-ce que le logiciel gitk ?</strong></p>
+<p>Gitk est un outil graphique open-source pour Git, qui fournit une interface utilisateur graphique pour visualiser l’historique des commits, les branches de code et les différences entre les commits. Il permet de visualiser facilement les modifications apportées aux fichiers d’un projet, ainsi que les relations entre les différents commits.(<a href="https://github.com/virtix/git-htmldocs/wiki/gitk">source</a>)</p>
+<p>Pour le lancer rien de plus simple il suffit de taper la commande gitk.</p>
+<p><strong>Mais quelle est la différence entre les deux?</strong></p>
+<p>Gitk va nous permettre d’accéder a l’historique des modification et des commits alors que Git GUI lui va permettre d’effectuer les commit et les différentes modification.</p>
+<p><strong>Quelle sera la ligne de commande git pour utiliser par défaut le proxy de l’université sur tous vos projets git ?</strong></p>
+<p>Afin d’utiliser par défaut le proxy de l’université il faudrait taper cette commande dans le terminale(<a href="https://wet-boew.github.io/v4.0-ci/docs/proxy-fr.html">source</a>):</p>
+<p><code>git config --global http.proxy http://nom-utilisateur:mot-de-passe@adresse-du-proxy:port</code></p>
+<p>Bien sur il faudra changer les informations demandée dans la ligne de commande par ceux qui nous conviendront.</p>
+<h2 data-number="2.3" id="accéder-au-port-3000"><span class="header-section-number">2.3</span> Accéder au port 3000</h2>
+<p>Comme Gitea utilise par défaut le port 3000 il va falloir rediriger les messages arrivant sur le port 3000 de la machine physique vers le port 3000 de la machine virtuelle.</p>
+<p>Pour cela nous allons faire des modification directement sur la machine virtuelle dans la section: <code>Configurer/réseaux</code>, dans la section <code>Avancé</code>.</p>
+<p>Dans cette section nous allons crée une nouvelle redirection de port qui se nommera <code>Gitea</code> et qui aura comme port hôte et port invité la valeur 3000.</p>
+<blockquote>
+<p><img src="./images/27.png" /></p>
+</blockquote>
+<h2 data-number="2.4" id="installation-et-lancement-de-gitea"><span class="header-section-number">2.4</span> Installation et lancement de Gitea</h2>
+<p>L’installation du binaire se fera grace au <a href="https://docs.gitea.io/en-us/install-from-binary/">guide d’installation</a></p>
+<blockquote>
+<p><img src="./images/28.png" /></p>
+</blockquote>
+<p>Le demarrage quand a lui se fera depuis le <a href="https://docs.gitea.io/en-us/linux-service/">guide de demarage</a></p>
+<blockquote>
+<p><img src="./images/29.png" /></p>
+</blockquote>
+<h2 data-number="2.5" id="parametrage-de-gitea"><span class="header-section-number">2.5</span> Parametrage de Gitea</h2>
+<p>Pour verifier que le systeme est bien démarré il suffie de taper la commande : <code>$ systemctl status gitea.service</code></p>
+<p>Nous pourrons ensuite sur notre machine physique nous rendre sur l’url : http://localhost:3000</p>
+<p>Vous tomberai sur cette page afin de faire la configuration initiale.</p>
+<blockquote>
+<p><img src="./images/30.png" /></p>
+</blockquote>
+<p>Les parametres a respecter serons les suivants :</p>
+<pre><code>    - La base de données sera SQLite3
+    - Le nom : gitea
+    - Le password : gitea
+    - L&#39;email : git@localhost</code></pre>
+<p>Afin de proteger <code>/etc/gitea</code> et <code>/etc/gitea/app.ini</code> les ligne de commande nous on été donnée dans la <a href="https://docs.gitea.io/en-us/install-from-binary/">documentation</a>.</p>
+<blockquote>
+<p><img src="./images/31.png" /></p>
+</blockquote>
+<p>On pourrait se demnder comment faire pour la mettre a jour sans devoir tout reconfigurer?</p>
+<p>Pour cela essayons de la mettre a jour a la version 1.19 .</p>
+<p>En nous rendant sur le site de la doc de gitea nous somme tombai sur la partie qui nous guide pour <a href="https://docs.gitea.io/en-us/upgrade-from-gitea/">upgrade depuis une version plus vieille</a>.</p>
+<p>On choisis la maniere d’upgrade depuis le binaire :</p>
+<blockquote>
+<p><img src="./images/32.png" /></p>
+</blockquote>
+<p>En suivant ces etapes dans l’ordre:</p>
+<pre><code>    - Installer le fichier binaire grace a la commande wget -O gitea https://dl.gitea.com/1.19.0/gitea-1.19.0-linux-amd64
+    - Arreter completement gitea grace a la commande sudo systemctl enable gitea
+    - Remplacer la version binaire de nos fichier par celle telecharger plutot et donc la mettre dans le repertoire gitea/app.ini
+    - Relancer Gitea</code></pre>
+<p>Apres avoir suivis ces etape votre gitea sera a la nouvelle version.</p>
+<h2 data-number="2.6" id="utilisation-basique"><span class="header-section-number">2.6</span> Utilisation basique</h2>
+<p>Voici quelques projet introduit grace a l’interface web de Gitea :</p>
+<blockquote>
+<p><img src="./images/33.png" /></p>
+</blockquote>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Libre avous a vous de choisir si vous voulez faire l’installation avec une interface graphique ou non.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Le miroir de base est celui de debian : deb.debian.org.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Si vous mettez une majuscule dans le nom de l’identifiant de compte un message d’erreur vous sera envoyer pour vous demander d’enlever la majuscule.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>La commande sudo permet d’executer les commande en tant que super utilisateur.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
