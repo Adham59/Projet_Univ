@@ -1,0 +1,71 @@
+body{
+    background-color: lavender;
+}
+
+
+h1 {
+    color:white; 
+    font-size:2em;
+    background-color : black ;
+    text-align : center;
+}
+
+/*article {background-color : lightgreen;}*/
+
+/*article div {background-color : lightgreen;}*/
+
+/*header {background-color : lightgreen;}*/
+
+/*body > header {background-color : lightgreen;}*/
+
+h2 {
+    font-size: 2em;
+}
+
+h3{
+    font-size: 1.5em;
+    font-family: 'Trebuchet MS' ;
+}
+
+body>header{
+    font-size: 3em;
+    text-align: center;
+    letter-spacing: 1em;
+    border: 1px;
+    border-color: black;
+    border-style: groove;
+}
+
+body>footer{
+    font-size: 3em;
+    text-align: center;
+    letter-spacing: 1em;
+    border: 1px;
+    border-color: black;
+    border-style: groove;
+}
+
+section>article>div>h4{
+    display: none;
+}
+
+article>div>p{
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: row;
+}
+
+article>div{
+    display: inline-block;
+    width: 46%;
+}
+
+article{
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+
+div{
+    padding-left: 1%;
+    padding-bottom: 1%;
+}

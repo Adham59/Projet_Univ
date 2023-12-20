@@ -1,0 +1,137 @@
+body{
+    background-color: lavender;
+}
+
+
+h1 {
+    color:white; 
+    font-size:2em;
+    background-color : black ;
+    text-align : center;
+}
+
+/*article {background-color : lightgreen;}*/
+
+/*article div {background-color : lightgreen;}*/
+
+/*header {background-color : lightgreen;}*/
+
+/*body > header {background-color : lightgreen;}*/
+
+h2 {
+    font-size: 2em;
+}
+
+h3{
+    font-size: 1.5em;
+    font-family: 'Trebuchet MS' ;
+}
+
+body>header{
+    font-size: 3em;
+    text-align: center;
+    letter-spacing: 1em;
+    border: 1px;
+    border-color: black;
+    border-style: groove;
+}
+
+body>footer{
+    font-size: 3em;
+    text-align: center;
+    letter-spacing: 1em;
+    border: 1px;
+    border-color: black;
+    border-style: groove;
+}
+
+section>article>div>h4{
+    display: none;
+}
+
+article>div>p{
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: row;
+}
+
+article>div{
+    display: inline-block;
+    width: 46%;
+}
+
+article{
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+
+div{
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+
+
+body>nav>ol>li{
+    display: inline;
+    background-color: grey;
+    margin-left: 3%;
+    margin-right: 3%;
+
+}
+
+body>nav>ol>li>a{
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+body>nav>ol>li>a:hover{
+    color: black;
+}
+
+body>nav>ol{
+    background-color: grey;
+    display: block;
+    text-align: center;
+    padding: 5%;
+}
+
+img{
+    z-index: 1;
+    overflow: auto;
+}
+
+
+table,th , td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr:nth-child(2n){
+    background-color:lightgrey;
+}
+
+
+tr:hover{
+    background-color: aqua;
+}
+
+form {
+    border: 1px solid black;
+    width: 50%;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

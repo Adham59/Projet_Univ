@@ -1,0 +1,60 @@
+11-Oct-2023 09:35:12.469 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.14
+11-Oct-2023 09:35:12.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 9 2023 21:01:11 UTC
+11-Oct-2023 09:35:12.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.14.0
+11-Oct-2023 09:35:12.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+11-Oct-2023 09:35:12.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.10.0-23-amd64
+11-Oct-2023 09:35:12.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+11-Oct-2023 09:35:12.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-17-openjdk-amd64
+11-Oct-2023 09:35:12.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.7+7-Debian-1deb11u1
+11-Oct-2023 09:35:12.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Debian
+11-Oct-2023 09:35:12.473 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat
+11-Oct-2023 09:35:12.473 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat
+11-Oct-2023 09:35:12.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/conf/logging.properties
+11-Oct-2023 09:35:12.481 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat
+11-Oct-2023 09:35:12.482 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/temp
+11-Oct-2023 09:35:12.484 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+11-Oct-2023 09:35:12.621 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+11-Oct-2023 09:35:12.637 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [267] milliseconds
+11-Oct-2023 09:35:12.663 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+11-Oct-2023 09:35:12.663 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.14]
+11-Oct-2023 09:35:12.670 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/ROOT]
+11-Oct-2023 09:35:12.835 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/ROOT] has finished in [165] ms
+11-Oct-2023 09:35:12.835 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/test]
+11-Oct-2023 09:35:12.862 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/test] has finished in [27] ms
+11-Oct-2023 09:35:12.862 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/docs]
+11-Oct-2023 09:35:12.885 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/docs] has finished in [23] ms
+11-Oct-2023 09:35:12.885 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/manager]
+11-Oct-2023 09:35:12.907 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/manager] has finished in [22] ms
+11-Oct-2023 09:35:12.908 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/host-manager]
+11-Oct-2023 09:35:12.922 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/host-manager] has finished in [14] ms
+11-Oct-2023 09:35:12.922 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/examples]
+11-Oct-2023 09:35:13.084 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/infoetu/adham.berrakane.etu/BUT2/Web/TP01/tomcat/webapps/examples] has finished in [162] ms
+11-Oct-2023 09:35:13.086 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+11-Oct-2023 09:35:13.092 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [454] milliseconds
+11-Oct-2023 09:58:04.439 INFO [http-nio-8080-exec-2] org.apache.coyote.http11.Http11Processor.service Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+	java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030xde0xbc0x0b0x080x9a0xdc90xcc6M0xbb0xcf0x1e0xd5&h0xf3M0x960xe80xa930xac0xac0xaaU20xa90x8c0xeeR0xbe ]. HTTP method names must be tokens
+		at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+11-Oct-2023 11:53:59.231 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+11-Oct-2023 11:53:59.234 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+11-Oct-2023 11:53:59.249 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+11-Oct-2023 11:53:59.257 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

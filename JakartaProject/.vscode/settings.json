@@ -1,0 +1,5 @@
+{
+    "java.project.sourcePaths": [
+        "tomcat/webapps/vide/WEB-INF/classes"
+    ]
+}
