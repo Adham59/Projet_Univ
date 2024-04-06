@@ -1,0 +1,37 @@
+.button {
+    -fx-font-size: 15px;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #1A1C3B;
+    -fx-border-radius: 3px;
+    -fx-border-size: 3px;
+    -fx-border-color: #ffffff;
+    -fx-padding: 10px;
+    -fx-max-width: 512px;
+}
+
+.button:hover {
+    -fx-background-color: #1A1C3B;
+}
+
+.root {
+    -fx-background-color: #1A1C3B;
+}
+
+* {
+    -fx-fill: #ffffff;
+}
+
+.layout {
+    -fx-padding: 7px;
+    -fx-background-color: #2e3163;
+    -fx-background-radius: 5px;
+}
+
+.l {
+    -fx-margin : 5px;
+}
+
+.radio {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+}
